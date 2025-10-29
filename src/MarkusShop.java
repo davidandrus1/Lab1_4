@@ -30,18 +30,17 @@ public class MarkusShop {
     }
 
     public static int mostExpensiveUsb(int[] usbs, int budget) {
-        int maxAffordable = -1;
+        int maxAffordableUsb = -1;
         for (int price : usbs) {
-            if (price <= budget && price > maxAffordable) {
-                maxAffordable = price;
+            if (price <= budget && price > maxAffordableUsb) {
+                maxAffordableUsb = price;
             }
         }
-        return maxAffordable;
+        return maxAffordableUsb;
     }
 
     public static int maxSpend(int[] keyboards, int[] usbs, int budget) {
         int maxSum = -1;
-
         for (int k : keyboards) {
             for (int u : usbs) {
                 int total = k + u;
@@ -62,7 +61,7 @@ public class MarkusShop {
 
         System.out.println("Cel mai scump obiect: " + mostExpensiveItem(keyboards, usbs));
 
-        System.out.println("Cel mai scump USB sub bugetul de 30: " + mostExpensiveUsb(usbs, 30));
+        System.out.println("Cel mai scump USB sub bugetul de 30: " + mostExpensiveUsb(usbs, budget));
 
         System.out.println("Maxim Markus poate cheltui (buget " + budget + "): " + maxSpend(keyboards, usbs, budget));
         }
