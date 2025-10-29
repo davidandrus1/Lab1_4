@@ -26,19 +26,30 @@ public class MarkusShop {
                 maxUsb = usbs[i];
             }
         }
-
         return Math.max(maxKeyboard, maxUsb);
     }
 
+    public static int mostExpensiveUsb(int[] usbs, int budget) {
+        int maxAffordable = -1;
+        for (int price : usbs) {
+            if (price <= budget && price > maxAffordable) {
+                maxAffordable = price;
+            }
+        }
+        return maxAffordable;
+    }
 
-    public static void main(String[] args) {
+        public static void main(String[] args) {
         int[] keyboards = {40, 35, 70, 15, 45};
         int[] usbs = {20, 15, 40, 15};
         int budget = 60;
 
         System.out.println("Cea mai ieftin tastatura: " + cheapestKeyboard(keyboards));
-        
+
         System.out.println("Cel mai scump obiect: " + mostExpensiveItem(keyboards, usbs));
 
-    }
+        System.out.println("Cel mai scump USB sub bugetul de 30: " +
+                mostExpensiveUsb(usbs, 30));
+
+        }
 }
